@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.111:3306/sell?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    show-sql: true
+  jackson:
+    default-property-inclusion: non_null
+  redis:
+    host: 192.168.1.111
+    port: 6379
+
+server:
+  servlet:
+    context-path: /sell
+
+wechat:
+  mpAppId: wx5c78daff57f9832f
+  mpAppSecret: eef1905b0f67a0b2fe515581b0fa5f17
+  openAppId: wx5c78daff57f9832f
+  openAppSecret: eef1905b0f67a0b2fe515581b0fa5f17
+
+
+projecturl:
+  wechatMpAuthorize: http://d6dc5c512c6bda62.nat300.top
+  wechatOpenAuthorize: http://d6dc5c512c6bda62.nat300.top
+  sell: http://d6dc5c512c6bda62.nat300.top
+

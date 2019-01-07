@@ -60,6 +60,8 @@ public class SellerUserController {
     @RequestMapping("/logout")
     public void logout(){
 
+        
+
     }
 
 }

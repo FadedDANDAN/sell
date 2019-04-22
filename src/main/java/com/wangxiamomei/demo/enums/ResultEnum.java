@@ -21,6 +21,8 @@ public enum ResultEnum {
     ORDER_SUCCESS(21,"订单取消成功"),
     PRODUCT_STATUS_ERROR(22,"商品状态异常"),
     LOGIN_FAIL(23,"登入失败"),
+    LOGOUT(24,"登出"),
+    PUSH_ERROR(25,"消息推送失败")
     ;
 
     private Integer code;

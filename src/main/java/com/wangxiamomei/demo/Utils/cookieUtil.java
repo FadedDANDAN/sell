@@ -1,9 +1,16 @@
 package com.wangxiamomei.demo.Utils;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 public class cookieUtil {
+
+    /*
+    * 设置cookie
+    * */
     public static void  set(HttpServletResponse response,
                             String name,
                             String vaule,
@@ -14,5 +21,31 @@ public class cookieUtil {
         response.addCookie(cookie);
     }
 
-    public static void  get(){}
+    /*
+    * 获取cookie
+    * */
+    public static Cookie get(HttpServletRequest request,
+                            String name){
+        Map<String, Cookie> cookieMap = readCookieMap(request);
+        if (cookieMap.containsKey(name)){
+            return cookieMap.get(name);
+        }else {
+            return null;
+        }
+    }
+
+
+    /*
+    * 将cookie封装成map
+    * */
+    private static Map<String,Cookie> readCookieMap(HttpServletRequest request){
+        Map<String,Cookie> cookieMap = new HashMap<>();
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null){
+            for (Cookie cookie: cookies){
+                cookieMap.put(cookie.getName(),cookie);
+            }
+        }
+        return cookieMap;
+    }
 }

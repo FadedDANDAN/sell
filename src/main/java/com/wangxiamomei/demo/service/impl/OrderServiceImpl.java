@@ -15,6 +15,7 @@ import com.wangxiamomei.demo.enums.ResultEnum;
 import com.wangxiamomei.demo.exception.SellException;
 import com.wangxiamomei.demo.service.OrderService;
 import com.wangxiamomei.demo.service.ProductService;
+import com.wangxiamomei.demo.service.PushMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderMasterDao orderMasterDao;
+
+    @Autowired
+    private PushMessage pushMessage;
 
 
     @Override
@@ -180,7 +184,7 @@ public class OrderServiceImpl implements OrderService {
         }
 
         //推送微信模版消息
-
+        pushMessage.orderStatus(orderDto);
 
         return orderDto;
     }

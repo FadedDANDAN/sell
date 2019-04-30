@@ -161,7 +161,7 @@ public class OrderServiceImpl implements OrderService {
         if (orderDto.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
             //todo
         }
-
+        pushMessage.orderStatus(orderDto);
         return orderDto;
     }
 
